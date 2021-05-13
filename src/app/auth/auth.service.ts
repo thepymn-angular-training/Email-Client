@@ -28,13 +28,22 @@ export class AuthService {
   }
 
   signup(credentials: SignupCredentials) {
-    return this.http.post<{ username: string }>(
-      `${this.rootUrl}/auth/signup`,
-      credentials
-    ).pipe(
-      tap(() => {
-        this.signedIn$.next(true);
-      })
-    )
+    return this.http
+      .post<{ username: string }>(`${this.rootUrl}/auth/signup`, credentials)
+      .pipe(
+        tap(() => {
+          this.signedIn$.next(true);
+        })
+      );
+  }
+
+  checkAuth() {
+    return this.http
+      .get<any>(`${this.rootUrl}/auth/signedin`)
+      .pipe(
+        tap((res) => {
+          console.log(res);
+        })
+      );
   }
 }
