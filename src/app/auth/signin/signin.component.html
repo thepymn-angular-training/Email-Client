@@ -3,7 +3,15 @@
     <app-input inputType="text" label="Username" [control]="authForm.get('username')"></app-input>
     <app-input inputType="password" label="Password" [control]="authForm.get('password')"></app-input>
 
-    <button class="ui submit button primary">
-        Submit
-    </button>
+    <div class="ui red basic label" *ngIf="authForm.errors">
+        <p *ngIf="authForm.errors.credentials">
+            Invalid username or password
+        </p>
+    </div>
+
+    <div>
+        <button class="ui submit button primary">
+            Submit
+        </button>
+    </div>
 </form>
