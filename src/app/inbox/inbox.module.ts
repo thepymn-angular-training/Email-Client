@@ -10,6 +10,9 @@ import { EmailReplyComponent } from './email-reply/email-reply.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SharedModule } from '../shared/shared.module';
+import { EmailFormComponent } from './email-form/email-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,12 +23,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EmailIndexComponent,
     EmailReplyComponent,
     PlaceholderComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EmailFormComponent
   ],
   imports: [
     CommonModule,
     InboxRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class InboxModule { }
